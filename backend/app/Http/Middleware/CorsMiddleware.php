@@ -12,7 +12,7 @@ class CorsMiddleware
         // List of allowed origins
         $allowedOrigins = [
             env('FRONTEND_URL'), // <--- READ FROM ENVIRONMENT
-            'https://frontend-production-270d.up.railway.app', // <--- HARDCODED BACKUP
+            'https://errandsexpress.up.railway.app', // <--- HARDCODED BACKUP
             'http://localhost:5173',
             'http://localhost:3000',
             'http://127.0.0.1:5173',

@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   preview: {
     allowedHosts: [
-      'frontend-production-270d.up.railway.app', // Add your specific Railway URL here
+      'errandsexpress.up.railway.app', // Add your specific Railway URL here
     ],
   },
 })
