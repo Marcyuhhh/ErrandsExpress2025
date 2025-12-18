@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './auth.css';
+import './Auth.css';
 import './verification.css';
 import Lnavbar from '../../components/layout/Landing/Navbar';
 import SignInForm from './signIn';
