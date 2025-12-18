@@ -11,6 +11,8 @@ class CorsMiddleware
     {
         // List of allowed origins
         $allowedOrigins = [
+            env('FRONTEND_URL'), // <--- READ FROM ENVIRONMENT
+            'https://frontend-production-270d.up.railway.app', // <--- HARDCODED BACKUP
             'http://localhost:5173',
             'http://localhost:3000',
             'http://127.0.0.1:5173',
@@ -18,6 +20,9 @@ class CorsMiddleware
         ];
 
         $origin = $request->header('Origin');
+        
+        // Check if origin is allowed
+        // If it is, use it. If not, default to localhost (which will cause the error, protecting you)
         $allowOrigin = in_array($origin, $allowedOrigins) ? $origin : $allowedOrigins[0];
 
         // Handle preflight OPTIONS request
@@ -39,4 +44,4 @@ class CorsMiddleware
 
         return $response;
     }
-} 
+}
