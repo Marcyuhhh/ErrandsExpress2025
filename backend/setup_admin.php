@@ -1,29 +1,18 @@
 <?php
 
-require_once 'vendor/autoload.php';
+// 1. Load Composer Autoloader
+require __DIR__ . '/vendor/autoload.php';
 
-use Illuminate\Foundation\Application;
-use Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables;
-use Illuminate\Foundation\Bootstrap\LoadConfiguration;
-use Illuminate\Foundation\Bootstrap\HandleExceptions;
-use Illuminate\Foundation\Bootstrap\RegisterFacades;
-use Illuminate\Foundation\Bootstrap\RegisterProviders;
-use Illuminate\Foundation\Bootstrap\BootProviders;
+// 2. Load the actual Laravel App (The correct Laravel 11 way)
+$app = require_once __DIR__ . '/bootstrap/app.php';
+
+// 3. Bootstrap the Console Kernel (This loads your Database, .env, and Facades)
+$kernel = $app->make(\Illuminate\Contracts\Console\Kernel::class);
+$kernel->bootstrap();
+
+// 4. Now we can safely use Models
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-
-// Create Laravel app instance
-$app = new Application(realpath(__DIR__));
-
-// Bootstrap the application
-$app->bootstrapWith([
-    LoadEnvironmentVariables::class,
-    LoadConfiguration::class,
-    HandleExceptions::class,
-    RegisterFacades::class,
-    RegisterProviders::class,
-    BootProviders::class,
-]);
 
 echo "Setting up Errands Express Admin User...\n";
 
@@ -32,9 +21,8 @@ try {
     $existingAdmin = User::where('email', 'admin@errandsexpress.com')->first();
     
     if ($existingAdmin) {
-        echo "Admin user already exists!\n";
-        echo "Email: admin@errandsexpress.com\n";
-        echo "You can use this account to access the admin panel.\n";
+        echo "⚠️  Admin user already exists!\n";
+        echo "   Email: admin@errandsexpress.com\n";
     } else {
         // Create admin user
         $admin = User::create([
@@ -50,15 +38,11 @@ try {
         ]);
 
         echo "✅ Admin user created successfully!\n";
-        echo "Email: admin@errandsexpress.com\n";
-        echo "Password: admin123456\n";
-        echo "Please change the password after first login.\n";
+        echo "   Email: admin@errandsexpress.com\n";
+        echo "   Password: admin123456\n";
     }
 
-    echo "\nSetup completed successfully!\n";
-    echo "You can now start the application and login as admin.\n";
-    
 } catch (Exception $e) {
-    echo "❌ Error creating admin user: " . $e->getMessage() . "\n";
-    echo "Make sure the database is properly configured and migrated.\n";
-} 
+    echo "❌ Error: " . $e->getMessage() . "\n";
+    // We don't exit with error code 1 here to avoid stopping the deployment if this fails
+}
