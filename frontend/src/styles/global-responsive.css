@@ -1,0 +1,550 @@
+/* Global Responsive Styles for Errands Express */
+
+/* Base Responsive Design */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Utility Classes for Responsive Design */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.container-fluid {
+  width: 100%;
+  padding: 0 20px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+/* Responsive Text Sizes */
+.text-xs {
+  font-size: 0.75rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-base {
+  font-size: 1rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+}
+
+/* Responsive Spacing */
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
+.m-2 {
+  margin: 0.5rem;
+}
+
+.m-4 {
+  margin: 1rem;
+}
+
+.m-6 {
+  margin: 1.5rem;
+}
+
+/* Touch-friendly Elements */
+.btn, button, .clickable {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover, button:hover, .clickable:hover {
+  transform: translateY(-1px);
+}
+
+/* Form Elements */
+input, textarea, select {
+  font-size: 16px; /* Prevents zoom on iOS */
+  padding: 12px;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: rgb(33, 33, 80);
+}
+
+/* Image Responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Grid System */
+.grid {
+  display: grid;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Visibility Classes */
+.hidden-mobile {
+  display: block;
+}
+
+.show-mobile {
+  display: none;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 1024px) {
+  html {
+    font-size: 15px;
+  }
+  
+  .container {
+    padding: 0 12px;
+  }
+  
+  .grid-cols-4 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .container {
+    padding: 0 10px;
+  }
+  
+  .container-fluid {
+    padding: 0 10px;
+  }
+  
+  .grid-cols-4,
+  .grid-cols-3,
+  .grid-cols-2 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+  .hidden-mobile {
+    display: none;
+  }
+  
+  .show-mobile {
+    display: block;
+  }
+  
+  /* Mobile-specific adjustments */
+  .text-3xl {
+    font-size: 1.5rem;
+  }
+  
+  .text-2xl {
+    font-size: 1.25rem;
+  }
+  
+  .text-xl {
+    font-size: 1.125rem;
+  }
+  
+  .p-6 {
+    padding: 1rem;
+  }
+  
+  .m-6 {
+    margin: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
+  
+  .container {
+    padding: 0 8px;
+  }
+  
+  .container-fluid {
+    padding: 0 8px;
+  }
+  
+  .text-3xl {
+    font-size: 1.25rem;
+  }
+  
+  .text-2xl {
+    font-size: 1.125rem;
+  }
+  
+  .p-4 {
+    padding: 0.75rem;
+  }
+  
+  .m-4 {
+    margin: 0.75rem;
+  }
+  
+  input, textarea, select {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  html {
+    font-size: 12px;
+  }
+  
+  .container {
+    padding: 0 6px;
+  }
+  
+  .container-fluid {
+    padding: 0 6px;
+  }
+  
+  .text-3xl {
+    font-size: 1.125rem;
+  }
+  
+  .text-2xl {
+    font-size: 1rem;
+  }
+  
+  input, textarea, select {
+    padding: 8px;
+  }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Crisp images and borders */
+  img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  /* Add dark mode styles if needed */
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+}
+
+/* Global Responsive Overrides for Errands Express */
+/* This file provides additional responsive support for the unified design system */
+
+/* Mobile Menu Button */
+@media (max-width: 768px) {
+  #mobile-menu-btn {
+    display: block !important;
+  }
+  
+  .app-header {
+    justify-content: space-between;
+    left: 0 !important;
+    width: 100% !important;
+  }
+  
+  .app-header h1 {
+    order: 1;
+    flex: 1;
+    text-align: center;
+  }
+  
+  #mobile-menu-btn {
+    order: 0;
+  }
+  
+  .app-sidebar {
+    top: var(--header-height) !important;
+    height: calc(100vh - var(--header-height)) !important;
+  }
+}
+
+/* Enhanced Touch Targets for Mobile */
+@media (hover: none) and (pointer: coarse) {
+  .btn {
+    min-height: 48px;
+    min-width: 48px;
+  }
+  
+  .form-input {
+    min-height: 48px;
+  }
+  
+  .status-badge {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+}
+
+/* Enhanced Grid Responsiveness */
+@media (max-width: 1200px) {
+  .grid-auto {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .grid-auto {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-auto {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Enhanced Scrollbar Support */
+.scrollable-content {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-medium) transparent;
+}
+
+.scrollable-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollable-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: var(--radius-full);
+}
+
+.scrollable-content::-webkit-scrollbar-thumb:hover {
+  background: var(--border-strong);
+}
+
+/* Print Optimizations */
+@media print {
+  .app-sidebar,
+  .sidebar-overlay,
+  .btn,
+  .status-badge {
+    display: none !important;
+  }
+  
+  .app-header {
+    position: static !important;
+    box-shadow: none !important;
+    border-bottom: 1px solid #000 !important;
+  }
+  
+  .app-main {
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+  }
+  
+  .page-container {
+    max-width: none !important;
+    padding: 0 !important;
+    background: white !important;
+  }
+  
+  .card {
+    border: 1px solid #000 !important;
+    box-shadow: none !important;
+    break-inside: avoid;
+  }
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .app-sidebar,
+  .sidebar-overlay,
+  .card,
+  .btn,
+  .animate-fade-in,
+  .animate-slide-in,
+  .animate-scale-in {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .card {
+    border: 2px solid var(--text-primary) !important;
+  }
+  
+  .btn-primary {
+    border: 2px solid var(--text-white) !important;
+  }
+  
+  .form-input:focus {
+    outline: 3px solid var(--text-primary) !important;
+    outline-offset: 2px !important;
+  }
+}
+
+/* Focus Management for Keyboard Navigation */
+.app-sidebar:focus-within,
+.app-header:focus-within {
+  z-index: calc(var(--z-fixed) + 1);
+}
+
+/* Enhanced Mobile Sidebar */
+@media (max-width: 768px) {
+  .app-sidebar {
+    width: min(280px, 85vw);
+  }
+  
+  .app-sidebar.mobile-open {
+    box-shadow: var(--shadow-xl);
+  }
+}
+
+/* Landscape Mobile Optimizations */
+@media (max-width: 768px) and (orientation: landscape) and (max-height: 500px) {
+  .page-header {
+    margin-bottom: var(--spacing-lg) !important;
+  }
+  
+  .page-title {
+    font-size: var(--text-2xl) !important;
+  }
+  
+  .stats-overview {
+    margin-bottom: var(--spacing-lg) !important;
+  }
+} 

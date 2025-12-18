@@ -1,0 +1,436 @@
+.verification-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 30, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10050;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.verification-modal-container {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+  width: 90%;
+  max-width: 900px;
+  height: 85vh;
+  max-height: 700px;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  font-family: "Istok Web", sans-serif;
+  overflow: hidden;
+  position: relative;
+  z-index: 10051;
+}
+
+.verification-modal-header {
+  padding: 25px 30px 20px;
+  border-bottom: 2px solid #f1f3f4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: black !important;
+  color: white;
+  flex-shrink: 0;
+  min-height: 80px;
+}
+
+.verification-modal-header h2 {
+  margin: 0;
+  font-size: 1.9rem;
+  font-weight: 700;
+}
+
+.verification-close-btn {
+  background: none;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: white;
+  padding: 0;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.verification-close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.verification-modal-content {
+  padding: 30px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Custom scrollbar */
+.verification-modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.verification-modal-content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.verification-modal-content::-webkit-scrollbar-thumb {
+  background: rgba(33, 33, 170, 0.3);
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.verification-modal-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(33, 33, 170, 0.5);
+}
+
+.verification-intro {
+  margin: 0 0 30px 0;
+  color: #495057;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  text-align: center;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid #2121AA;
+}
+
+.verification-section {
+  margin-bottom: 35px;
+}
+
+.verification-section h3 {
+  margin: 0 0 20px 0;
+  color: #2121AA;
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.verification-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+
+.verification-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.verification-input-group label {
+  font-weight: 600;
+  color: #343a40;
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+.verification-input-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: #495057;
+  background: white;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 10052;
+}
+
+.verification-input-group input:focus {
+  outline: none;
+  border-color: #2121AA;
+  box-shadow: 0 0 0 3px rgba(33, 33, 170, 0.1);
+  background: #fafbfc;
+  position: relative;
+  z-index: 10053;
+}
+
+.verification-input-group input:hover {
+  border-color: #ced4da;
+}
+
+.verification-file-section {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 25px;
+  border: 2px dashed #dee2e6;
+  transition: all 0.3s ease;
+}
+
+.verification-file-section:hover {
+  border-color: #2121AA;
+  background: #f0f3ff;
+}
+
+.verification-file-section h4 {
+  margin: 0 0 15px 0;
+  color: #2121AA;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.verification-file-input {
+  margin-bottom: 20px;
+}
+
+.verification-file-input input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 10052;
+}
+
+.verification-file-input input[type="file"]:hover {
+  border-color: #2121AA;
+  background: #fafbfc;
+}
+
+.verification-preview {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.verification-preview img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid #e9ecef;
+}
+
+.verification-submit-section {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+  border: 1px solid #dee2e6;
+}
+
+.verification-submit-btn {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+  min-width: 200px;
+}
+
+.verification-submit-btn:hover {
+  background: linear-gradient(135deg, #218838, #1ea080);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+}
+
+.verification-submit-btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .verification-modal-container {
+    width: 95%;
+    height: 80vh;
+    max-height: 650px;
+    min-height: 550px;
+  }
+  
+  .verification-form-grid {
+    gap: 20px;
+  }
+  
+  .verification-file-section {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .verification-modal-overlay {
+    padding: 10px;
+  }
+  
+  .verification-modal-container {
+    width: 95%;
+    height: 90vh;
+    max-height: none;
+    min-height: 500px;
+  }
+  
+  .verification-modal-header {
+    padding: 20px 25px 15px;
+    min-height: 70px;
+  }
+  
+  .verification-modal-header h2 {
+    font-size: 1.5rem;
+  }
+  
+  .verification-close-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
+  }
+  
+  .verification-modal-content {
+    padding: 20px;
+  }
+  
+  .verification-intro {
+    font-size: 1rem;
+    padding: 15px;
+  }
+  
+  .verification-section h3 {
+    font-size: 1.2rem;
+  }
+  
+  .verification-form-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .verification-file-section {
+    padding: 20px;
+  }
+  
+  .verification-preview img {
+    max-height: 150px;
+  }
+  
+  .verification-submit-section {
+    padding: 20px;
+  }
+  
+  .verification-submit-btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+    min-width: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .verification-modal-overlay {
+    padding: 5px;
+  }
+  
+  .verification-modal-container {
+    width: 98%;
+    height: 95vh;
+    min-height: 450px;
+  }
+  
+  .verification-modal-header {
+    padding: 15px 20px;
+    min-height: 60px;
+  }
+  
+  .verification-modal-header h2 {
+    font-size: 1.3rem;
+  }
+  
+  .verification-close-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 24px;
+  }
+  
+  .verification-modal-content {
+    padding: 15px;
+  }
+  
+  .verification-intro {
+    font-size: 0.95rem;
+    padding: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .verification-section {
+    margin-bottom: 25px;
+  }
+  
+  .verification-section h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+  }
+  
+  .verification-form-grid {
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .verification-input-group label {
+    font-size: 0.9rem;
+  }
+  
+  .verification-input-group input {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+  
+  .verification-file-section {
+    padding: 15px;
+  }
+  
+  .verification-file-section h4 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  .verification-file-input input[type="file"] {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+  
+  .verification-preview img {
+    max-height: 120px;
+  }
+  
+  .verification-submit-section {
+    padding: 15px;
+  }
+  
+  .verification-submit-btn {
+    padding: 10px 25px;
+    font-size: 0.95rem;
+    min-width: 140px;
+  }
+} 
