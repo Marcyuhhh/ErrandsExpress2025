@@ -132,13 +132,13 @@ function LandingPage() {
                 <div className="founder-avatar">👨‍💼</div>
                 <h4>Marc Ariel H. Eurese</h4>
                 <p>Co-Founder & CEO</p>
-                <p>Computer Science Student passionate about solving real-world problems through technology.</p>
+                <p>Computer Engineering Student passionate about solving real-world problems through technology.</p>
               </div>
               <div className="founder-card">
                 <div className="founder-avatar">👩‍💼</div>
                 <h4>Janyl Sweet V. Estores</h4>
                 <p>Co-Founder & CTO</p>
-                <p>Engineering student with expertise in building scalable platforms for community needs.</p>
+                <p>Computer Engineering Student passionate about solving real-world problems through technology.</p>
               </div>
             </div>
           </div>
@@ -161,7 +161,7 @@ function LandingPage() {
               <div className="testimonial-author">
                 <div className="author-avatar">👨‍🎓</div>
                 <div>
-                  <h4>David Park</h4>
+                  <h4>Raniel Banoson</h4>
                   <p>Engineering Student</p>
                 </div>
               </div>

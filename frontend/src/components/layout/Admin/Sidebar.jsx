@@ -134,14 +134,12 @@ function AdminSidebar({ onClose }) {
           </li>
         </ul>
         
-        <div className="admin-sidebar-footer">
           <button 
             className="admin-logout-btn"
             onClick={handleLogout}
           >
             🚪 Logout
           </button>
-        </div>
       </nav>
     </aside>
   );
