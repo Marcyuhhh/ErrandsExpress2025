@@ -1569,23 +1569,6 @@
     font-size: 0.85rem;
   }
 }
-
-/* --- Admin Layout Base --- */
-.admin-layout {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-}
-
-.admin-body {
-  display: flex;
-  flex: 1;
-  margin: 0;
-  padding: 0;
-}
-
 /* ============================================================
    ADMIN LAYOUT STRUCTURE
    ============================================================ */
@@ -1609,11 +1592,12 @@
   background: #ffffff;
   z-index: 1300;
   width: 100%;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 /* Sidebar Wrapper */
 .admin-sidebar-wrapper {
-  width: 280px;
+  width: 300px;
   background: #2c3e50;
   color: white;
   position: fixed;
@@ -1623,6 +1607,8 @@
   transition: transform 0.3s ease;
   z-index: 1200;
   transform: translateX(0);
+  display: flex;
+  flex-direction: column;
 }
 
 .admin-sidebar-wrapper.mobile-open {
@@ -1707,7 +1693,7 @@
 }
 
 /* ============================================================
-   ADMIN HEADER STYLES
+   ADMIN HEADER STYLES - UPDATED
    ============================================================ */
 
 .admin-header-container {
@@ -1737,6 +1723,7 @@
   width: 50px;
   height: 50px;
   object-fit: contain;
+  border-radius: 0; /* Remove circular border */
 }
 
 .admin-header-title {
@@ -1754,15 +1741,9 @@
   position: relative;
 }
 
-/* ADMIN MODE LABEL */
+/* ADMIN MODE LABEL - REMOVED (the yellow thing) */
 .admin-mode-label {
-  font-weight: 600;
-  font-size: 14px;
-  color: #e74c3c;
-  padding: 8px 16px;
-  background: rgba(231, 76, 60, 0.1);
-  border-radius: 25px;
-  border: 1px solid rgba(231, 76, 60, 0.3);
+  display: none; /* Completely remove this element */
 }
 
 /* ADMIN PROFILE INFO - HEADER */
@@ -1777,7 +1758,7 @@
   height: 40px;
   background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
   color: white;
-  border-radius: 50%;
+  border-radius: 0; /* Remove circular border as requested */
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -1796,7 +1777,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
 }
 
 .admin-header-profile-name {
@@ -1807,18 +1787,18 @@
 }
 
 /* HAMBURGER BUTTON - ADMIN */
+/* Hide by default, only show on mobile */
 .admin-hamburger-btn {
+  display: none; /* Hidden by default */
   background: none;
   border: 1px solid #e5e5e5;
   font-size: 24px;
   color: #2c3e50;
   cursor: pointer;
   padding: 8px 12px;
-  border-radius: 8px;
   transition: all 0.3s ease;
   min-width: 44px;
   min-height: 44px;
-  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -1839,7 +1819,7 @@
   right: 0;
   background: white;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  border-radius: 8px;
+  border-radius: 0; /* Remove circular border */
   padding: 8px 0;
   width: 180px;
   z-index: 1400;
@@ -1871,25 +1851,26 @@
 }
 
 /* ============================================================
-   ADMIN SIDEBAR STYLES
+   ADMIN SIDEBAR STYLES - FIXED FOR NO OVERFLOW
    ============================================================ */
 
 .admin-sidebar {
   width: 100%;
   height: 100%;
   background: transparent;
-  padding: 30px 20px;
+  padding: 20px 15px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  overflow-y: auto;
+  flex: 1;
+  overflow: visible; /* No overflow-x */
 }
 
 .admin-nav {
   display: flex;
   flex-direction: column;
-  width: 100%;
   height: 100%;
+  width: 100%;
+  flex: 1;
 }
 
 /* PROFILE SECTION - SIDEBAR */
@@ -1897,40 +1878,46 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   text-align: center;
+  flex-shrink: 0;
 }
 
 .admin-profile-circle {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
   color: white;
-  border-radius: 50%;
+  border-radius: 0; /* Remove circular border */
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
-  margin-bottom: 15px;
-  border: 3px solid rgba(255, 255, 255, 0.3);
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  flex-shrink: 0;
 }
 
 .admin-profile-name {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: white;
   margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .admin-role-badge {
   background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
   color: white;
-  padding: 5px 15px;
-  border-radius: 20px;
-  font-size: 0.8rem;
+  padding: 4px 12px;
+  border-radius: 0; /* Remove circular border */
+  font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 /* NAV LIST - SIDEBAR */
@@ -1940,9 +1927,10 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   flex: 1;
   width: 100%;
+  max-height: 3000px; /* Increased to bring logout up */
 }
 
 .admin-nav-list li {
@@ -1953,16 +1941,17 @@
   color: #bdc3c7;
   text-decoration: none;
   font-family: "Istok Web", sans-serif;
-  font-weight: 600;
-  font-size: 1rem;
+  font-weight: 650;
+  font-size: 0.95rem;
   transition: all 0.3s ease;
-  padding: 15px 20px;
-  border-radius: 10px;
+  padding: 12px 15px;
+  border-radius: 10px; /* Remove circular border */
   display: block;
   width: 100%;
   text-align: left;
   box-sizing: border-box;
   border: 1px solid transparent;
+  white-space: nowrap;
 }
 
 .admin-nav-link:hover,
@@ -1971,7 +1960,7 @@
   color: white;
   transform: translateX(5px);
   border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 5px 20px rgba(231, 76, 60, 0.3);
+  box-shadow: 0 3px 10px rgba(231, 76, 60, 0.3);
 }
 
 /* Notification Dot - Admin */
@@ -1983,40 +1972,39 @@
 
 .admin-notification-dot {
   position: absolute;
-  top: -8px;
+  top: -6px;
   right: 0;
-  min-width: 20px;
-  height: 20px;
+  min-width: 18px;
+  height: 18px;
   background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-  border-radius: 50%;
-  border: 2px solid #2c3e50;
-  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.4);
+  border-radius: 0; /* Remove circular border */
+  border: 1px solid #2c3e50;
+  box-shadow: 0 2px 6px rgba(52, 152, 219, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   color: white;
-  padding: 0 4px;
+  padding: 0 3px;
   line-height: 1;
 }
 
 /* Adjust size for longer text (9+) */
 .admin-notification-dot:has-text {
-  border-radius: 8px;
-  min-width: 24px;
-  height: 20px;
+  min-width: 22px;
+  height: 18px;
 }
 
-
 .admin-logout-btn {
-  width: 100%;
-  padding: 12px;
+  width: 90%; /* Reduced width to fit without overflow */
+  margin: 0 auto; /* Center it */
+  padding: 10px; /* Slightly reduced padding */
   background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
   color: white;
   border: none;
-  border-radius: 10px;
-  font-size: 1rem;
+  border-radius: 0; /* Remove circular border */
+  font-size: 0.9rem; /* Slightly smaller font */
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -2024,12 +2012,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .admin-logout-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 20px rgba(231, 76, 60, 0.4);
+  box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
 }
 
 /* ============================================================
@@ -2058,6 +2046,11 @@
   
   .admin-main {
     margin-top: 75px;
+  }
+  
+  /* Adjust nav list height for desktop */
+  .admin-nav-list {
+    max-height: calc(100vh - 270px);
   }
 }
 
@@ -2088,7 +2081,7 @@
 
 @media (max-width: 768px) {
   /* Mobile Styles */
-  /* Hide sidebar by default on mobile */
+  /* Hide sidebar by default on mobile - completely off screen */
   .admin-sidebar-wrapper {
     transform: translateX(-100%);
     width: 280px;
@@ -2096,6 +2089,7 @@
   
   .admin-sidebar-wrapper.mobile-open {
     transform: translateX(0);
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
   }
   
   /* Adjust main content for mobile */
@@ -2104,7 +2098,7 @@
     width: 100%;
   }
   
-  /* Mobile Header */
+  /* Mobile Header - Show hamburger button only on mobile */
   .admin-header-wrapper {
     height: 65px;
   }
@@ -2130,12 +2124,6 @@
     gap: 15px;
   }
 
-  .admin-mode-label {
-    font-size: 12px;
-    padding: 6px 12px;
-    display: none; /* Hide on mobile to save space */
-  }
-
   .admin-header-profile-circle {
     width: 35px;
     height: 35px;
@@ -2143,11 +2131,16 @@
   }
 
   .admin-header-profile-name {
-    display: none; /* Hide name on mobile */
+    display: none;
   }
   
   .admin-header-dropdown-menu {
     width: 160px;
+  }
+  
+  /* Show hamburger button on mobile */
+  .admin-hamburger-btn {
+    display: flex;
   }
   
   /* Adjust positions for mobile */
@@ -2163,6 +2156,11 @@
   .admin-sidebar-overlay {
     top: 65px;
     height: calc(100vh - 65px);
+  }
+  
+  /* Adjust nav list height for mobile */
+  .admin-nav-list {
+    max-height: calc(100vh - 240px);
   }
 }
 
@@ -2191,6 +2189,7 @@
   .admin-sidebar-wrapper {
     top: 60px;
     height: calc(100vh - 60px);
+    width: 260px;
   }
   
   .admin-main {
@@ -2206,6 +2205,36 @@
     padding: 20px 15px;
     margin: 15px;
     border-radius: 12px;
+  }
+  
+  /* Adjust sidebar for smaller screens */
+  .admin-sidebar {
+    padding: 15px 10px;
+  }
+  
+  .admin-profile-circle {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+  
+  .admin-profile-name {
+    font-size: 1rem;
+  }
+  
+  .admin-nav-link {
+    font-size: 0.9rem;
+    padding: 10px 12px;
+  }
+  
+  .admin-nav-list {
+    max-height: calc(100vh - 230px);
+  }
+  
+  .admin-logout-btn {
+    width: 85%; /* Even smaller on mobile */
+    font-size: 0.85rem;
+    padding: 8px;
   }
 }
 
