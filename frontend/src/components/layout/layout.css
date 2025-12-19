@@ -1525,3 +1525,468 @@
     font-size: 0.85rem;
   }
 }
+
+/* --- Admin Layout Base --- */
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-body {
+  display: flex;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Sidebar styles --- */
+.admin-sidebar {
+  width: 100px;
+  height: 100vh;
+  background: transparent; /* Use parent background like customer */
+  color: var(--text-primary); /* Use dark text on light background */
+  position: relative;
+  overflow: visible; /* Allow content to be visible */
+  z-index: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-lg) var(--spacing-md);
+  box-shadow: none; /* Remove duplicate shadow */
+  transition: transform 0.3s ease;
+}
+
+.admin-nav {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.admin-profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.admin-profile-circle {
+  background: var(--gradient-accent); /* Use customer's golden gradient */
+  color: var(--text-white);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  box-shadow: var(--shadow-gold); /* Add golden shadow like customer */
+}
+
+.admin-profile-name {
+  color: var(--text-primary); /* Use dark text like customer */
+  font-family: "Istok Web", sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.admin-role-badge {
+  background: var(--bg-muted); /* Use customer's golden muted background */
+  color: var(--accent-dark-gold); /* Use customer's dark gold */
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 5px;
+  border: 1px solid var(--border-light); /* Use customer's golden border */
+}
+
+.admin-sidebar-footer {
+  margin-top: auto;
+  width: 100%;
+}
+
+.admin-logout-btn {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Istok Web", sans-serif;
+}
+
+.admin-logout-btn:hover {
+  background: rgba(220, 53, 69, 0.2);
+  border-color: rgba(220, 53, 69, 0.5);
+  transform: translateY(-1px);
+}
+
+.admin-nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+  align-items: left;
+  flex: 1;
+  justify-content: flex-start;
+}
+
+.admin-nav-list li {
+  margin-bottom: 0;
+}
+
+.admin-nav-link {
+  display: block;
+  padding: 0px;
+  color: var(--text-secondary); /* Use customer's text color */
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "Istok Web", sans-serif;
+  border-radius: var(--radius-md); /* Use customer's border radius */
+  text-align: left;
+  width: 100%;
+}
+
+.admin-nav-link:hover,
+.admin-nav-link.active {
+  background: var(--bg-muted);
+  color: var(--accent-dark-gold);
+  transform: translateX(5px);
+  border: 1px solid var(--border-medium);
+  box-shadow: var(--shadow-gold);
+}
+
+/* Notification dot styles */
+.admin-nav-content {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.admin-notification-dot {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  min-width: 16px;
+  height: 16px;
+  background-color: #ff4444;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 600;
+  color: white;
+  padding: 0 2px;
+  line-height: 1;
+  z-index: 1;
+}
+
+/* Adjust size for longer text (9+) */
+.admin-notification-dot:has-text {
+  border-radius: 8px;
+  min-width: 18px;
+  height: 16px;
+}
+
+/* Mobile hamburger menu button - Hide since we use unified system */
+.admin-mobile-menu-toggle {
+  display: none !important;
+}
+
+.admin-sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1100;
+  display: none;
+}
+
+.admin-sidebar-overlay.active {
+  display: block;
+}
+
+/* --- Admin main content --- */
+.admin-main {
+  flex: 1;
+  margin-left: 0; /* Remove fixed margin - let unified system handle it */
+  margin-top: 0;
+  min-height: 100vh;
+  background: var(--bg-primary); /* Use customer's gradient background */
+  overflow-x: auto;
+  padding: 0; /* Remove any default padding */
+}
+
+/* --- AdminNavbar styles (unique) --- */
+.admin-navbar-container {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.admin-navbar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 86px;
+  padding: 0 20px;
+  background-color: white;
+  border-bottom: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.admin-navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.admin-navbar-logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.admin-navbar-title {
+  font-size: 1.5em;
+  color: #333;
+  font-weight: 700;
+}
+
+.admin-navbar-right {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.admin-navbar-label {
+  font-weight: bold;
+  color: #333;
+  margin-right: 15px;
+}
+
+.admin-profile-info {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.admin-profile-circle {
+  background-color: #f4c542;
+  color: black;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+.admin-profile-name {
+  font-weight: bold;
+}
+
+.admin-navbar-hamburger-btn {
+  background: none;
+  border: none;
+  font-size: 26px;
+  color: black;
+  cursor: pointer;
+  padding: 0 10px;
+}
+
+.admin-navbar-dropdown-menu {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: white;
+  box-shadow: 0px 4px 12px rgba(33, 33, 80, 0.3);
+  border-radius: 8px;
+  padding: 10px 0;
+  width: 180px;
+  z-index: 1400;
+}
+
+.admin-navbar-dropdown-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.admin-navbar-dropdown-menu li {
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #333;
+}
+
+.admin-navbar-dropdown-menu li:hover {
+  background-color: #f4f4f4;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 1024px) {
+  .admin-sidebar {
+    width: 220px;
+  }
+  
+  .admin-main {
+    margin-left: 220px;
+  }
+  
+  .admin-nav-list {
+    gap: 0;
+  }
+  
+  .admin-nav-link {
+    font-size: 16px;
+    padding: 0.5px 0.7px;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-mobile-menu-toggle {
+    display: block;
+  }
+  
+  .admin-sidebar {
+    width: 280px;
+    transform: translateX(-100%);
+    box-shadow: none;
+  }
+  
+  .admin-sidebar.mobile-open {
+    transform: translateX(0);
+    box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .admin-main {
+    margin-left: 0;
+  }
+  
+  .admin-nav-list {
+    margin-top: 2rem;
+    gap: 0;
+  }
+  
+  .admin-nav-link {
+    font-size: 17.6px;
+    padding: 0.75px 1px;
+    margin: 0 5px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+  }
+  
+  .admin-nav-link:hover,
+  .admin-nav-link.active {
+    background: var(--bg-muted);
+    color: var(--accent-dark-gold);
+    transform: translateX(0);
+    border: 1px solid var(--border-medium);
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-sidebar {
+    width: 260px;
+    padding: 1rem 0.5rem;
+  }
+  
+  .admin-nav-list {
+    gap: 0;
+    margin-top: 1.5rem;
+  }
+  
+  .admin-nav-link {
+    font-size: 16px;
+    padding: 0.6px 0.8px;
+    margin: 0 2.5px;
+  }
+  
+  .admin-mobile-menu-toggle {
+    top: 15px;
+    left: 15px;
+    padding: 8px;
+    font-size: 18px;
+  }
+}
+
+/* --- Legacy Box Styles (for compatibility) --- */
+.admin-center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+}
+
+.boxes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.box {
+  background-color: #e1e1e1;
+  padding: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.box:hover {
+  background-color: #ccc;
+}
+
+.admin-right {
+  width: 350px;
+  background: white;
+  padding: 20px;
+  border-left: 1px solid #ccc;
+}
+
+.img-placeholder {
+  width: 100px;
+  height: 100px;
+  background: #d0d0d0;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.verify-btn {
+  background-color: #f4c542;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+}

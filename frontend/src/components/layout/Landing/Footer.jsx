@@ -39,20 +39,11 @@ function Footer() {
           </ul>
         </div>
 
-        <div className="landing-footer-section">
-          <h4>Contact Info</h4>
-          <div className="landing-contact-info">
-            <p>📧 support@errandsexpress.com</p>
-            <p>📱 +1 (555) 123-4567</p>
-            <p>🏫 Student Center, Room 204</p>
-            <p>⏰ Mon-Fri: 8AM-10PM</p>
-          </div>
-        </div>
       </div>
 
       <div className="landing-footer-bottom">
         <div className="landing-footer-bottom-content">
-          <p>&copy; 2024 Errands Express. All rights reserved.</p>
+          <p>&copy; 2025 Errands Express. All rights reserved.</p>
           <div className="landing-footer-links">
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>

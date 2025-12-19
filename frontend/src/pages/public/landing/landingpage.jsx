@@ -100,15 +100,15 @@ function LandingPage() {
               </p>
               <div className="stats-grid">
                 <div className="stat-item">
-                  <h3>500+</h3>
+                  <h3>5+</h3>
                   <p>Happy Users</p>
                 </div>
                 <div className="stat-item">
-                  <h3>1000+</h3>
+                  <h3>0</h3>
                   <p>Completed Errands</p>
                 </div>
                 <div className="stat-item">
-                  <h3>24/7</h3>
+                  <h3>Student Schedule</h3>
                   <p>Service Available</p>
                 </div>
               </div>
@@ -130,21 +130,15 @@ function LandingPage() {
             <div className="founders-grid">
               <div className="founder-card">
                 <div className="founder-avatar">👨‍💼</div>
-                <h4>Alex Johnson</h4>
+                <h4>Marc Ariel H. Eurese</h4>
                 <p>Co-Founder & CEO</p>
                 <p>Computer Science Student passionate about solving real-world problems through technology.</p>
               </div>
               <div className="founder-card">
                 <div className="founder-avatar">👩‍💼</div>
-                <h4>Sarah Chen</h4>
+                <h4>Janyl Sweet V. Estores</h4>
                 <p>Co-Founder & CTO</p>
                 <p>Engineering student with expertise in building scalable platforms for community needs.</p>
-              </div>
-              <div className="founder-card">
-                <div className="founder-avatar">👨‍🎓</div>
-                <h4>Mike Rodriguez</h4>
-                <p>Co-Founder & COO</p>
-                <p>Business student focused on creating efficient operations and amazing user experiences.</p>
               </div>
             </div>
           </div>
@@ -158,36 +152,6 @@ function LandingPage() {
           <p className="feedback-subtitle">Here's what our community is saying about Errands Express...</p>
           
           <div className="testimonials-grid">
-            <div className="testimonial-card">
-              <div className="testimonial-content">
-                <div className="stars">⭐⭐⭐⭐⭐</div>
-                <p>"Errands Express saved my semester! When I was stuck in the library during finals, 
-                they brought me food and coffee. Absolute lifesaver!"</p>
-              </div>
-              <div className="testimonial-author">
-                <div className="author-avatar">👩‍🎓</div>
-                <div>
-                  <h4>Emma Thompson</h4>
-                  <p>Psychology Student</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="testimonial-card">
-              <div className="testimonial-content">
-                <div className="stars">⭐⭐⭐⭐⭐</div>
-                <p>"As a professor, I often need urgent document delivery. The runners are professional, 
-                fast, and always reliable. Highly recommend!"</p>
-              </div>
-              <div className="testimonial-author">
-                <div className="author-avatar">👨‍🏫</div>
-                <div>
-                  <h4>Dr. James Wilson</h4>
-                  <p>Mathematics Professor</p>
-                </div>
-              </div>
-            </div>
-
             <div className="testimonial-card">
               <div className="testimonial-content">
                 <div className="stars">⭐⭐⭐⭐⭐</div>
@@ -236,7 +200,7 @@ function LandingPage() {
                 <div className="contact-icon">🏫</div>
                 <div>
                   <h4>Campus Office</h4>
-                  <p>Student Center, Room 204<br/>Main Campus</p>
+                  <p>University of Science and Technology of Southern Philippines<br/>CDO Campus</p>
                 </div>
               </div>
               

@@ -6,8 +6,6 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  overflow-y: auto;
-  position: relative;
   background-image: url('../../assets/Background.png');
   background-size: cover;
   background-position: center;
@@ -45,22 +43,19 @@
 html, body {
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
 }
 
 .Auth {
   min-height: 100vh;
-  overflow-y: auto;
 }
 
 .auth-wrapper::before {
   content: "";
-  position: absolute;
+  position: fixed;
   top: 0; 
   left: 0;
   width: 100%;
-  height: calc(100% - 60px); 
+  height: 100%; 
   background: rgba(60, 60, 60, 0.4);
   z-index: 1;
 }
