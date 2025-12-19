@@ -22,10 +22,8 @@
 .admin-header {
   background: var(--bg-secondary);
   padding: 30px;
-  border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
   margin-bottom: 30px;
-  border-left: 4px solid var(--accent-gold);
 }
 
 .admin-header h1 {
@@ -977,13 +975,6 @@
   font-style: italic;
 }
 
-/* Admin Layout Updates */
-.admin-sidebar {
-  background: #2c3e50;
-  min-height: 100vh;
-  width: 300px;
-  padding: 0;
-}
 
 .admin-nav {
   padding: 20px 0;
