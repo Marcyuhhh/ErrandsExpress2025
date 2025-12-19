@@ -153,7 +153,7 @@ function VerificationModal({ closeModal, showSuccess, formData }) {
             <h3>Profile Information</h3>
             <div className="verification-form-grid">
               <div className="verification-input-group">
-                <label htmlFor="firstname">First Name *</label>
+                <label htmlFor="firstname">First Name</label>
                 <input
                   type="text"
                   id="firstname"
@@ -166,7 +166,7 @@ function VerificationModal({ closeModal, showSuccess, formData }) {
               </div>
               
               <div className="verification-input-group">
-                <label htmlFor="lastname">Last Name *</label>
+                <label htmlFor="lastname">Last Name</label>
                 <input
                   type="text"
                   id="lastname"
@@ -192,7 +192,7 @@ function VerificationModal({ closeModal, showSuccess, formData }) {
               </div>
               
               <div className="verification-input-group">
-                <label htmlFor="school_id_no">School ID Number *</label>
+                <label htmlFor="school_id_no">School ID Number</label>
                 <input
                   type="text"
                   id="school_id_no"
@@ -209,9 +209,8 @@ function VerificationModal({ closeModal, showSuccess, formData }) {
           <div className="verification-section">
             <h3>Verification Photos</h3>
             <div className="verification-upload-grid">
-              <div className="verification-upload-group">
-                <label htmlFor="idPic">ID Picture *</label>
                 <div className="verification-upload-area">
+                   <label htmlFor="idPic">ID Picture</label>
                   <input 
                     type="file" 
                     id="idPic"
@@ -221,15 +220,13 @@ function VerificationModal({ closeModal, showSuccess, formData }) {
                     required 
                   />
                   <div className="verification-upload-info">
-                    <span>📄 Upload clear photo of your ID</span>
+                    <span> Upload clear photo of your ID</span>
                     {uploads.idPic && <span className="verification-file-success">✓ Uploaded</span>}
                   </div>
                 </div>
-              </div>
-
-              <div className="verification-upload-group">
-                <label htmlFor="facePic">Profile Picture *</label>
+             
                 <div className="verification-upload-area">
+                  <label htmlFor="facePic">Profile Picture</label>
                   <input 
                     type="file" 
                     id="facePic"
@@ -239,11 +236,10 @@ function VerificationModal({ closeModal, showSuccess, formData }) {
                     required 
                   />
                   <div className="verification-upload-info">
-                    <span>📸 Upload a clear photo of yourself</span>
+                    <span>Upload a clear photo of yourself</span>
                     {uploads.facePic && <span className="verification-file-success">✓ Uploaded</span>}
                   </div>
                 </div>
-              </div>
             </div>
           </div>
 

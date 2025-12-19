@@ -118,7 +118,7 @@
 .verification-modal-header {
   background: linear-gradient(135deg, var(--formal-primary) 0%, var(--formal-primary-dark) 100%);
   padding: var(--formal-space-xl) var(--formal-space-2xl);
-  display: flex;
+  display: fixed;
   align-items: center;
   justify-content: space-between;
   border-bottom: var(--formal-border-width) solid var(--formal-gray-200);
