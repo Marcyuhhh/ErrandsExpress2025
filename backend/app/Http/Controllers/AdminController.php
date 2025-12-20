@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail; // Add this import
+use App\Mail\UserVerifiedNotification; // Add this import
 
 class AdminController extends Controller
 {
@@ -106,6 +108,13 @@ class AdminController extends Controller
                 $user->save();
                 
                 \Log::info('User approved: ' . $user->email);
+
+                try {
+                    Mail::to($user->email)->send(new UserVerifiedNotification($user));
+                } catch (\Exception $e) {
+                     \Log::error('Failed to send user verification email: ' . $e->getMessage());
+                }
+
                 return response()->json(['message' => 'User approved successfully']);
             } elseif ($action === 'reject') {
                 // For rejected users, we can either delete them or keep them unverified

@@ -12,6 +12,8 @@ use Tymon\JWTAuth\Exceptions\TokenInvalidException;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail; // Add this import
+use App\Mail\AdminNewUserNotification; // Add this import
 
 class UserController extends Controller
 {
@@ -92,6 +94,19 @@ class UserController extends Controller
             ]);
 
             \Log::info('User registered successfully', ['user_id' => $user->id, 'email' => $user->email]);
+
+            // --- START NEW CODE ---
+            // Send Email to Admin
+            // Ideally, put this email in your .env file
+            $adminEmail = env('ADMIN_EMAIL', 'eurese.marc.ariel@gmail.com'); 
+            
+            try {
+                Mail::to($adminEmail)->send(new AdminNewUserNotification($user));
+            } catch (\Exception $e) {
+                // Log email failure but don't stop registration
+                \Log::error('Failed to send admin notification: ' . $e->getMessage());
+            }
+            // --- END NEW CODE ---
 
             return response()->json([
                 'message' => 'Registration successful! Please complete your profile information after logging in.',
