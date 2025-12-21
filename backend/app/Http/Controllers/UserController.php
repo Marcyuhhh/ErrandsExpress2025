@@ -94,20 +94,18 @@ class UserController extends Controller
             ]);
 
             \Log::info('User registered successfully', ['user_id' => $user->id, 'email' => $user->email]);
-
-            // --- SEND EMAIL TO ADMIN START ---
-        try {
-            $adminEmail = env('ADMIN_EMAIL'); 
-            if ($adminEmail) {
+            $adminEmail = env('ADMIN_EMAIL') ?: 'eurese.marc.ariel@gmail.com'; 
+            
+            try {
+                // 2. Wrap in a try-catch that specifically logs errors but allows registration to finish
                 Mail::to($adminEmail)->send(new AdminNewUserNotification($user));
-                \Log::info('Admin notification email sent to ' . $adminEmail);
-            } else {
-                \Log::warning('ADMIN_EMAIL not set in .env');
+                \Log::info('Admin notification sent to: ' . $adminEmail);
+            } catch (\Exception $e) {
+                // 3. Log the specific error so you can see it in Railway logs
+                \Log::error('EMAIL ERROR: ' . $e->getMessage());
+                // We do NOT return an error here, so the user still gets registered successfully
             }
-        } catch (\Exception $e) {
-            \Log::error('Failed to send admin email: ' . $e->getMessage());
-        }
-        // --- SEND EMAIL TO ADMIN END ---
+            // --- END NEW CODE ---
 
             return response()->json([
                 'message' => 'Registration successful! Please complete your profile information after logging in.',
