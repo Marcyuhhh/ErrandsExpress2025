@@ -23,15 +23,14 @@ class UserVerifiedNotification extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Account Verified! Welcome to Errands Express',
+            subject: 'Your Account has been Verified!',
         );
     }
 
     public function content(): Content
     {
         return new Content(
-            view: 'emails.user_verified', // Create this blade file
-            with: ['user' => $this->user]
+            view: 'emails.user_verified',
         );
     }
 }

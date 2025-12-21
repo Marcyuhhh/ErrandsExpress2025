@@ -95,18 +95,19 @@ class UserController extends Controller
 
             \Log::info('User registered successfully', ['user_id' => $user->id, 'email' => $user->email]);
 
-            // --- START NEW CODE ---
-            // Send Email to Admin
-            // Ideally, put this email in your .env file
-            $adminEmail = env('ADMIN_EMAIL', 'eurese.marc.ariel@gmail.com'); 
-            
-            try {
+            // --- SEND EMAIL TO ADMIN START ---
+        try {
+            $adminEmail = env('ADMIN_EMAIL'); 
+            if ($adminEmail) {
                 Mail::to($adminEmail)->send(new AdminNewUserNotification($user));
-            } catch (\Exception $e) {
-                // Log email failure but don't stop registration
-                \Log::error('Failed to send admin notification: ' . $e->getMessage());
+                \Log::info('Admin notification email sent to ' . $adminEmail);
+            } else {
+                \Log::warning('ADMIN_EMAIL not set in .env');
             }
-            // --- END NEW CODE ---
+        } catch (\Exception $e) {
+            \Log::error('Failed to send admin email: ' . $e->getMessage());
+        }
+        // --- SEND EMAIL TO ADMIN END ---
 
             return response()->json([
                 'message' => 'Registration successful! Please complete your profile information after logging in.',

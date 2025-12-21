@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <body>
-    <h1>Welcome, {{ $user->firstname }}!</h1>
+    <h2>Welcome to Errands Express!</h2>
+    <p>Hello {{ $user->firstname }},</p>
     <p>Your account has been successfully verified by our admins.</p>
-    <p>You can now log in to the application and start posting or running errands.</p>
-    <p>Login here: <a href="https://errandsexpress.up.railway.app/auth">Login</a></p>
+    <p>You can now log in and start using the app.</p>
 </body>
 </html>
